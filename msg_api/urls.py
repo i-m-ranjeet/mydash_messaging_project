@@ -5,5 +5,5 @@ from msg_api import views
 
 urlpatterns = [
     path('messages/',views.Messages.as_view()),
-    path('getusertoken/',views.TokenAuthantication.as_view())
+    path('usertoken/',views.TokenAuthantication.as_view())
 ]

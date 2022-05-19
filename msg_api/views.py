@@ -18,8 +18,8 @@ class Messages(APIView):
     def post(self, request):
         msg_in_hour=0   # for count messages in one hour
         hour_countdown=0    # for count time of last 10 messages
-        last_msgs = models.Create_message.objects.all()[::-1][:10]  # getting last 10 messages
-
+        last_msgs = models.Create_message.objects.filter(userid = request.user.id)[::-1][:10]  # getting last 10 messages
+        print(last_msgs)
         # counting msg_in_hour and time for 10 messages
         for msg in last_msgs:   
             hour_countdown = (datetime.now().replace(tzinfo=timezone.utc)-msg.updated_at).total_seconds()-19800
@@ -40,6 +40,7 @@ class Messages(APIView):
         if hour_countdown<3600 and msg_in_hour<10:    # if less the 10 messages have sent in  one hour duration
             newdata =  dict(request.data)
             newdata.update({'message':newdata['message'][0],'userid':request.user.id})
+            print(newdata)
             data = serializers.MsgSerializer(data=newdata) # adding the message to database using serializer
 
             if data.is_valid():
