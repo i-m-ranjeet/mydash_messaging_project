@@ -21,8 +21,9 @@
                 >> Password: ******
                 >> Password (again): ******
         
-# Authantication and  Process:
+# Authantication and New message Process:
         >> By using Postman send a post request and username and password in body, send your request to this api 'http://localhost:8000/api/usertoken/
         >> if you got the token use that token with every request to authanticate your account: send this token from headers as > 'Authantication' 'token <your token>'
+        >> New Message: after genrating the token send your message as 'message' '<your message>' from body, with your token at : 'http://localhost:8000/api/messages/'
         
         
