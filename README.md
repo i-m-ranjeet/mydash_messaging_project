@@ -14,6 +14,13 @@
                 >> pip install django-rest-framework
         >> $ python manage.py runserver   //for run server
         
+## Default Users: 
+                >> username: root
+                >> password: root@123
+                or
+                >> username: user2
+                >> password: user2@123
+                
         ____create new user 
                 >> python manage.py createsuperuser
                 >> Username (leave blank to use 'ranjeet'): root
